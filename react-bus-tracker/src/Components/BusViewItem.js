@@ -3,7 +3,7 @@ import React from 'react'
 const BusViewItem = ({name,time,dest}) => {
   return (
     <div>
-        <div className="mt-3 bg-slate-100 p-3 border-l-4 border-green-500">
+        <div className="mt-3 bg-slate-100 p-3 border-l-4 border-green-500" onDoubleClick={()=>{console.log("Go to bus route menu")}}>
             <ul className="font-semibold">{name}</ul>
             <ul className="font-thin">{time}</ul>
             <ul className="font-semibold">{dest}</ul>
