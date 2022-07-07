@@ -8,9 +8,7 @@ import BusRoute from "./BusRoute";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const NavPane = () => {
-  const searchAPICall = (e) => {
-    console.log(e);
-  };
+  
 
   const [toggleBusView, setToggleBusView] = useState(false);
   // const [toggleArrow, setToggleArrow] = useState(false)
@@ -27,7 +25,6 @@ const NavPane = () => {
         ) : (
           <SearchBus
             onClick={() => setToggleBusView(!toggleBusView)}
-            search={searchAPICall}
           />
         )}
         {toggleBusView ? <BusView /> : ""}

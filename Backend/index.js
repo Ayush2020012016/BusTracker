@@ -10,6 +10,7 @@ app.get('/search', (req,res) => {
     const from = req.query.from;
     const to = req.query.to;
     console.log(`From  : ${from} Destination : ${to}`)
+    res.set('Access-Control-Allow-Origin','http://localhost:3000')
     res.status(200).send({
         From : {from},
         To : {to}

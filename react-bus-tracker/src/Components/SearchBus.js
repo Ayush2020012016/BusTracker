@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 
-const SearchBus = ({ onClick,search }) => {
+const SearchBus = ({ onClick }) => {
   const [startLocation, setStartLocation] = useState("");
   const [destination, setDestination] = useState("");
 
@@ -19,10 +19,22 @@ const SearchBus = ({ onClick,search }) => {
     }
 
     console.log("Starting, Destination :",startLocation, destination);
-    search({ startLocation, destination });
+    fetchBusDetails(startLocation,destination)
+    
     setStartLocation("");
     setDestination("");
   };
+
+
+  function fetchBusDetails(startLocation,destination) {
+    return fetch(`http://localhost:4000/search?from=${startLocation}&to=${destination}`,{
+      headers: {'Access-Control-Allow-Origin' : '*'}
+    })
+      .then((response) => console.log(response))
+      .then((data) => console.log(data))
+      .catch((error) => console.error(error));
+  }
+
 
   return (
     <div>
