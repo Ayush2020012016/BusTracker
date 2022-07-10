@@ -1,9 +1,25 @@
 const app = require('express')();
 const cors = require('cors')
+const MongoClient = require('mongodb').MongoClient
+const mongourl = "mongodb://localhost:27017/buses"
 const PORT = 4000;
 
 app.use(cors())
 app.options('*',cors)
+
+MongoClient.connect(mongourl, function(err, db){
+    if(err) throw err
+    console.log("Connected to Database")
+    var dbo = db.db("buses")
+    dbo.collection("routes").find({}).toArray(function(err,result){
+        if (err) throw err;
+        console.log(result)
+        db.close()
+
+    })
+})
+
+
 
 app.listen(
     PORT,
