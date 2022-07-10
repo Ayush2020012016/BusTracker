@@ -1,5 +1,9 @@
 const app = require('express')();
+const cors = require('cors')
 const PORT = 4000;
+
+app.use(cors())
+app.options('*',cors)
 
 app.listen(
     PORT,
@@ -13,7 +17,8 @@ app.get('/search', (req,res) => {
     res.set('Access-Control-Allow-Origin','http://localhost:3000')
     res.status(200).send({
         From : {from},
-        To : {to}
+        To : {to},
+        "bue" : "ljdfsk"
     })
 
 })
