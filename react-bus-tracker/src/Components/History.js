@@ -3,7 +3,7 @@ import BusViewItem from './BusViewItem'
 
 const History = () => {
   return (
-    <div className="p-3 shadow-lg m-4 rounded-lg bg-white">
+    <div className="p-3 m-4 shadow-lg rounded-lg bg-white">
         <p className="font-semibold">Search History</p>
         <BusViewItem name="St John" time="6pm - 7pm" dest="RIT - Pampady"/>
         <BusViewItem name="St John" time="6pm - 7pm" dest="RIT - Pampady"/>

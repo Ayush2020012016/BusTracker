@@ -38,7 +38,7 @@ const SearchBus = ({ onClick }) => {
 
   return (
     <div>
-      <div className="grid gap-4 p-3 bg-white m-4 rounded-lg shadow-lg">
+      <div className="grid gap-4 p-3 m-4 bg-white rounded-lg shadow-lg">
         <input
           input="text"
           placeholder="From Bus Stop"
