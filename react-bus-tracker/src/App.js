@@ -1,5 +1,6 @@
 import NavPane from "./Components/NavPane";
 
+
 function App() {
 
   const getLocation = () => {

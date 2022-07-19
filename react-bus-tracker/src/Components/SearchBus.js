@@ -1,12 +1,17 @@
 import React from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const SearchBus = ({ onClick }) => {
+
+  const history = useNavigate()
+
   const [startLocation, setStartLocation] = useState("");
   const [destination, setDestination] = useState("");
 
   const onSubmit = (e) => {
-    onClick()
+    // onClick()
+    history("/BusTracker/busview")
     e.preventDefault();
 
     if (!startLocation) {
