@@ -18,20 +18,23 @@ const NavPane = () => {
           show={toggleBusView}
           goBack={() => setToggleBusView(!toggleBusView)}
         />
-        <div className="flex justify-between">
-          <div className="flex flex-col">
+        <div className="grid md:grid-cols-2">
+          <div>
             {toggleBusView ? (
               ""
             ) : (
               <SearchBus onClick={() => setToggleBusView(!toggleBusView)} />
             )}
             {toggleBusView ? <BusView /> : ""}
+
             {toggleBusView ? "" : <History />}
-          <Routes>
-            <Route path="BusTracker/busroute" element={<BusRoute />} />
-          </Routes>
           </div>
+          <div>
+            <Routes>
+              <Route path="BusTracker/busroute" element={<BusRoute />} />
+            </Routes>
             <BusRoute />
+          </div>
         </div>
       </div>
     </BrowserRouter>
