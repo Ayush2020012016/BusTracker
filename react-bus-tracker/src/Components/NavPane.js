@@ -30,9 +30,10 @@ const NavPane = () => {
             {toggleBusView ? "" : <History />}
           </div>
           <div>
-            <Routes>
+            {/* For displaying bus progress only on visiting /busroute  */}
+            {/* <Routes>
               <Route path="BusTracker/busroute" element={<BusRoute />} />
-            </Routes>
+            </Routes> */}
             <BusRoute />
           </div>
         </div>

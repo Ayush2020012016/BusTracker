@@ -39,15 +39,13 @@ app.get('/search', (req,res) => {
 
 })
 
-app.get('/busview', (req,res) => {
-    res.status(200).send({
-        Test : "Test"
-    })
-})
 
 
 app.get('/busroute', (req,res) => {
+    const id = req.query.id;
+    console.log(`id is ${id}`)
     res.status(200).send({
-        Test : "Test"
+        ID : {id},
+        "dsf" : "dfs"
     })
 })
