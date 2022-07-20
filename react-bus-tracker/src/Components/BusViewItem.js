@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 const BusViewItem = ({id,name,time,dest}) => {
 
-  const history = useNavigate();
+  const navigate = useNavigate();
 
   
   function fetchBusDetails(id) {
@@ -17,7 +17,7 @@ const BusViewItem = ({id,name,time,dest}) => {
 
   return (
     <div>
-        <div className="mt-3 bg-slate-100 p-3 border-l-4 border-green-500" onClick={()=>{history("busroute"); fetchBusDetails(id)}}>
+        <div className="mt-3 bg-slate-100 p-3 border-l-4 border-green-500" onClick={()=>{navigate("../BusTracker/busroute"); fetchBusDetails(id)}}>
             <ul className="font-semibold">{name}</ul>
             <ul className="font-thin">{time}</ul>
             <ul className="font-semibold">{dest}</ul>
