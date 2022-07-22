@@ -1,12 +1,12 @@
 import Progess from "./Progess";
 
-const BusRoute = () => {
+const BusRoute = ({id}) => {
   return (
     <div>
       <div className="pl-14 p-4 m-4 shadow-lg rounded-lg bg-white">
         <h1 className="font-bold text-lg">St. John</h1>
         <div className="flex justify-around">
-          <Progess percentage={"76%"} />
+          <Progess percentage={"33%"} />
           <div className="grid place-content-between p-4 font-semibold">
             <ul>8th Mile</ul>
             <ul>8th Mile</ul>

@@ -5,7 +5,7 @@ import SearchBus from "./SearchBus";
 import BusView from "./BusView";
 import BusRoute from "./BusRoute";
 import { Routes, Route } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+// import Bus from './svg/bus.gif'
 
 const NavPane = () => {
 
@@ -23,11 +23,17 @@ const NavPane = () => {
           <Routes>
             <Route exact path="BusTracker" element={<History />} />
           </Routes>
+          {/* <Routes>
+          <Route exact path="BusTracker/busroute" element={<img src={Bus} className="rounded-2xl m-3 shadow-xl h-96 mt-72"/>}/>
+          </Routes> */}
         </div>
         <div>
           <Routes>
             <Route exact path="BusTracker/busroute" element={<BusRoute />} />
           </Routes>
+          {/* <Routes>
+          <Route exact path="BusTracker" element={<img src={Bus} className="rounded-2xl m-3 shadow-xl h-96 mt-40"/>}/>
+          </Routes> */}
         </div>
       </div>
     </div>
