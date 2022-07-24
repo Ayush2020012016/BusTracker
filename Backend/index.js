@@ -32,9 +32,7 @@ app.get('/search', (req,res) => {
     console.log(`From  : ${from} Destination : ${to}`)
     res.set('Access-Control-Allow-Origin','http://localhost:3000')
     res.status(200).send({
-        From : {from},
-        To : {to},
-        "bue" : "ljdfsk"
+        hello : "world"
     })
 
 })
@@ -44,8 +42,5 @@ app.get('/search', (req,res) => {
 app.get('/busroute', (req,res) => {
     const id = req.query.id;
     console.log(`id is ${id}`)
-    res.status(200).send({
-        ID : {id},
-        "dsf" : "dfs"
-    })
+    res.status(200).send("hello there")
 })

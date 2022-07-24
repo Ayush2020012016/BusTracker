@@ -3,15 +3,14 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const SearchBus = ({ onClick }) => {
-
-  const history = useNavigate()
+  const navigate = useNavigate();
 
   const [startLocation, setStartLocation] = useState("");
   const [destination, setDestination] = useState("");
 
   const onSubmit = (e) => {
     // onClick()
-    history("/BusTracker/busview")
+    navigate("/BusTracker/busview");
     e.preventDefault();
 
     if (!startLocation) {
@@ -23,23 +22,36 @@ const SearchBus = ({ onClick }) => {
       return;
     }
 
-    console.log("Starting, Destination :",startLocation, destination);
-    fetchBusDetails(startLocation,destination)
-    
+    console.log("Starting, Destination :", startLocation, destination);
+    fetchBusDetails(startLocation, destination).then((data) => {
+      console.log(data);
+    });
+
     setStartLocation("");
     setDestination("");
   };
 
+  // function fetchBusDetails(startLocation,destination) {
+  //   return fetch(`http://localhost:4000/search?from=${startLocation}&to=${destination}`,{
+  //     headers: {'Access-Control-Allow-Origin' : '*'}
+  //   })
+  //     .then((response) => response)
+  //     .then((actualData) => console.log(JSON.stringify(actualData)))
+  //     .then((data) => console.log(JSON.stringify(data)))
+  //     .catch((error) => console.error(error));
 
-  function fetchBusDetails(startLocation,destination) {
-    return fetch(`http://localhost:4000/search?from=${startLocation}&to=${destination}`,{
-      headers: {'Access-Control-Allow-Origin' : '*'}
-    })
-      .then((response) => console.log(response))
-      .then((data) => console.log(data))
-      .catch((error) => console.error(error));
+  // }
+
+  async function fetchBusDetails(startLocation, destination) {
+    const responce = await fetch(
+      `http://localhost:4000/search?from=${startLocation}&to=${destination}`,
+      {
+        headers: { "Access-Control-Allow-Origin": "*" },
+      }
+    );
+    const data = await responce.json();
+    return data;
   }
-
 
   return (
     <div>
@@ -60,8 +72,7 @@ const SearchBus = ({ onClick }) => {
         />
         <button
           className="bg-green-500 p-3 rounded-lg font-semibold active:bg-green-600 shadow-sm text-white"
-          onClick={ onSubmit
-          }
+          onClick={onSubmit}
         >
           Find Buses
         </button>
