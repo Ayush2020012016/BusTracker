@@ -32,7 +32,11 @@ app.get('/search', (req,res) => {
     console.log(`From  : ${from} Destination : ${to}`)
     res.set('Access-Control-Allow-Origin','http://localhost:3000')
     res.status(200).send({
-        hello : "world"
+        id : "2",
+        name : "St. John",
+        time : "2pm - 7pm",
+        route : "Pampady - Kottayam",
+        routes : ["Pampady","RIT","8th Mile","Manarcad", "Kanjikuzhy", "Kottayam"]
     })
 
 })

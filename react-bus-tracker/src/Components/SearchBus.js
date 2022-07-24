@@ -2,14 +2,13 @@ import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const SearchBus = ({ onClick }) => {
+const SearchBus = ({ viewBusData }) => {
   const navigate = useNavigate();
 
   const [startLocation, setStartLocation] = useState("");
   const [destination, setDestination] = useState("");
 
   const onSubmit = (e) => {
-    // onClick()
     navigate("/BusTracker/busview");
     e.preventDefault();
 
@@ -25,6 +24,7 @@ const SearchBus = ({ onClick }) => {
     console.log("Starting, Destination :", startLocation, destination);
     fetchBusDetails(startLocation, destination).then((data) => {
       console.log(data);
+      viewBusData(data)
     });
 
     setStartLocation("");

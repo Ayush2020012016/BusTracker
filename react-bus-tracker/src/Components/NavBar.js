@@ -8,7 +8,7 @@ const NavBar = () => {
 
   const navigate = useNavigate()
   const location = useLocation()
-  console.log(location.pathname)
+  // console.log(location.pathname)
 
   return (
     <div className="bg-black text-white p-3 shadow-sm text-2xl flex justify-between">
