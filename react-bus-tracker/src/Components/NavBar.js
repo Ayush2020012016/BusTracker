@@ -2,12 +2,12 @@ import React from "react";
 import { HiArrowLeft } from "react-icons/hi";
 import { useNavigate } from "react-router-dom";
 import { Routes, Route } from "react-router-dom";
-import {useLocation} from 'react-router-dom'
+// import {useLocation} from 'react-router-dom'
 
 const NavBar = () => {
 
   const navigate = useNavigate()
-  const location = useLocation()
+  // const location = useLocation()
   // console.log(location.pathname)
 
   return (

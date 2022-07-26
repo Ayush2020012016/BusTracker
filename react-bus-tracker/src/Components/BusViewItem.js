@@ -6,18 +6,18 @@ const BusViewItem = ({id,name,time,dest}) => {
   const navigate = useNavigate();
 
   
-  function fetchBusDetails(id) {
-    return fetch(`http://localhost:4000/busroute?id=${id}`,{
-      headers: {'Access-Control-Allow-Origin' : '*'}
-    })
-      .then((response) => console.log(response))
-      .then((data) => console.log(data))
-      .catch((error) => console.error(error));
-  }
+  // function fetchBusDetails(id) {
+  //   return fetch(`http://localhost:4000/busroute?id=${id}`,{
+  //     headers: {'Access-Control-Allow-Origin' : '*'}
+  //   })
+  //     .then((response) => console.log(response))
+  //     .then((data) => console.log(data))
+  //     .catch((error) => console.error(error));
+  // }
 
   return (
     <div>
-        <div className="mt-3 bg-slate-100 p-3 border-l-4 border-green-500" onClick={()=>{navigate("../BusTracker/busroute"); fetchBusDetails(id)}}>
+        <div className="mt-3 bg-slate-100 p-3 border-l-4 border-green-500" onClick={()=>{navigate(`../BusTracker/busroute?id=${id}`)}}>
             <ul className="font-semibold">{name}</ul>
             <ul className="font-thin">{time}</ul>
             <ul className="font-semibold">{dest}</ul>

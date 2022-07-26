@@ -9,9 +9,9 @@ const SearchBus = ({ viewBusData }) => {
   const [destination, setDestination] = useState("");
 
   const onSubmit = (e) => {
-    navigate("/BusTracker/busview");
+    // navigate("/BusTracker/busview");
     e.preventDefault();
-
+    
     if (!startLocation) {
       alert("Please add a starting point.");
       return;
@@ -20,10 +20,11 @@ const SearchBus = ({ viewBusData }) => {
       alert("Please add a destination.");
       return;
     }
-
+    
     console.log("Starting, Destination :", startLocation, destination);
     fetchBusDetails(startLocation, destination).then((data) => {
       console.log(data);
+      navigate(`/BusTracker/busview?from=${startLocation}&to=${destination}`);
       viewBusData(data)
     });
 
