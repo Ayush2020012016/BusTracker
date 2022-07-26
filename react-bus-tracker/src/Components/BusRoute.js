@@ -64,6 +64,12 @@ const BusRoute = () => {
       return data;
     }
 
+    var routesdata = routex.map(function(dat){
+      return <ul>{dat}</ul>
+    })
+    var timesdata = timesx.map(function(dat){
+      return <ul>{dat}</ul>
+    })
 
 
   return (
@@ -74,12 +80,14 @@ const BusRoute = () => {
           <Progess percentage={"33%"} />
           <div className="grid place-content-between p-4 font-semibold">
             
-          <ul>{routex[0]}</ul>
+          {/* <ul>{routex[0]}</ul> */}
+          {routesdata}
           
             
           </div>
           <div className="grid place-content-between p-4 font-semibold text-green-500">
-            <ul>{timesx[0]}</ul>
+            {/* <ul>{timesx[0]}</ul> */}
+            {timesdata}
           </div>
         </div>
       </div>
