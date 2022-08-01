@@ -2,16 +2,13 @@ import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const SearchBus = ({ viewBusData }) => {
+const SearchBus = () => {
   const navigate = useNavigate();
 
   const [startLocation, setStartLocation] = useState("");
   const [destination, setDestination] = useState("");
 
-  const onSubmit = (e) => {
-    // navigate("/BusTracker/busview");
-    e.preventDefault();
-    
+  const onSubmit = () => {
     if (!startLocation) {
       alert("Please add a starting point.");
       return;
@@ -20,28 +17,16 @@ const SearchBus = ({ viewBusData }) => {
       alert("Please add a destination.");
       return;
     }
-    
-    console.log("Starting, Destination :", startLocation, destination);
+
     fetchBusDetails(startLocation, destination).then((data) => {
       console.log(data);
       navigate(`/BusTracker/busview?from=${startLocation}&to=${destination}`);
-      viewBusData(data)
+      
     });
 
     setStartLocation("");
     setDestination("");
   };
-
-  // function fetchBusDetails(startLocation,destination) {
-  //   return fetch(`http://localhost:4000/search?from=${startLocation}&to=${destination}`,{
-  //     headers: {'Access-Control-Allow-Origin' : '*'}
-  //   })
-  //     .then((response) => response)
-  //     .then((actualData) => console.log(JSON.stringify(actualData)))
-  //     .then((data) => console.log(JSON.stringify(data)))
-  //     .catch((error) => console.error(error));
-
-  // }
 
   async function fetchBusDetails(startLocation, destination) {
     const responce = await fetch(

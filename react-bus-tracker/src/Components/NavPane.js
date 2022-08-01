@@ -9,16 +9,7 @@ import { Routes, Route } from "react-router-dom";
 // import Bus from './svg/bus.gif'
 
 const NavPane = () => {
-  var id, name, time, stop;
-
-  const viewbus = (data) => {
-    id = data.id;
-    name = data.name;
-    time = data.time;
-    stop = data.routes;
-    // console.log(id, name, time, stop);
-    
-  };
+  
 
   return (
     <div className="h-screen border-r-2 border-slate-200 shadow-xl bg-gray-100 overflow-y-auto">
@@ -29,14 +20,14 @@ const NavPane = () => {
             <Route
               exact
               path="BusTracker"
-              element={<SearchBus viewBusData={(e) => viewbus(e)} />}
+              element={<SearchBus/>}
             />
           </Routes>
           <Routes>
             <Route
               exact
               path="BusTracker/busview"
-              element={<BusView id={id} name={name} time={time} dest={name} />}
+              element={<BusView/>}
             />
           </Routes>
           {/* <Routes>

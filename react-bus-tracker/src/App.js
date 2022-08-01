@@ -10,8 +10,8 @@ function App() {
       // console.log("Locating...");
       navigator.geolocation.getCurrentPosition(
         (position) => {
-          console.log(position.coords.latitude);
-          console.log(position.coords.longitude);
+          console.log("Latitude : ",position.coords.latitude);
+          console.log("Longitude : ",position.coords.longitude);
         },
         () => {
           console.log("Unable to retrieve your location");
