@@ -18,13 +18,13 @@ const BusRoute = () => {
         return res.json();
       })
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         setBusdata(data);
       });
   }, []);
 
   useEffect(() => {
-    console.log(busdata.routes);
+    // console.log(busdata.routes);
     setRoutesdata(busdata.routes);
     setTimesdata(busdata.times);
   }, [busdata]);

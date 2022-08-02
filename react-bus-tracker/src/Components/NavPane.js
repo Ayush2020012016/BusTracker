@@ -1,12 +1,11 @@
 import React from "react";
 import NavBar from "./NavBar";
-import History from "./History";
+// import History from "./History";
 import SearchBus from "./SearchBus";
 import BusView from "./BusView";
 import BusRoute from "./BusRoute";
 import { Routes, Route } from "react-router-dom";
 // import { useState} from "react";
-// import Bus from './svg/bus.gif'
 
 const NavPane = () => {
   
@@ -18,42 +17,21 @@ const NavPane = () => {
         <div>
           <Routes>
             <Route
-              exact
               path="BusTracker"
               element={<SearchBus/>}
             />
           </Routes>
           <Routes>
-            <Route
-              exact
+            <Route exact
               path="BusTracker/busview"
               element={<BusView/>}
             />
           </Routes>
-          {/* <Routes>
-            <Route
-              exact
-              path="BusTracker"
-              element={
-                <History
-                id={id} name={name} time={time} dest={name}
-                />
-              }
-            />
-          </Routes> */}
-
-          
-          {/* <Routes>
-          <Route exact path="BusTracker/busroute" element={<img src={Bus} className="rounded-2xl m-3 shadow-xl h-96 mt-72"/>}/>
-          </Routes> */}
         </div>
         <div>
           <Routes>
-            <Route exact path="BusTracker/busroute" element={<BusRoute />} />
+            <Route path="BusTracker/busroute" element={<BusRoute />} />
           </Routes>
-          {/* <Routes>
-          <Route exact path="BusTracker" element={<img src={Bus} className="rounded-2xl m-3 shadow-xl h-96 mt-40"/>}/>
-          </Routes> */}
         </div>
       </div>
     </div>

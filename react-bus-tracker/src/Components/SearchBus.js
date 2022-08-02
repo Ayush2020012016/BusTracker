@@ -19,7 +19,7 @@ const SearchBus = () => {
     }
 
     fetchBusDetails(startLocation, destination).then((data) => {
-      console.log(data);
+      // console.log(data);
       navigate(`/BusTracker/busview?from=${startLocation}&to=${destination}`);
       
     });
