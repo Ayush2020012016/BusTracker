@@ -35,7 +35,7 @@ const NavPane = () => {
           </Routes>
           <Routes>
             <Route
-              path="Feedback"
+              path="BusTracker/feedback"
               element={<Feedback/>}
             />
           </Routes>

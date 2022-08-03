@@ -1,5 +1,6 @@
 import React from "react";
 import { HiArrowLeft } from "react-icons/hi";
+import {MdFeedback} from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import { Routes, Route } from "react-router-dom";
 // import {useLocation} from 'react-router-dom'
@@ -33,10 +34,30 @@ const NavBar = () => {
               />
             }
           />
+          <Route
+            path="BusTracker/feedback"
+            element={
+              <HiArrowLeft
+                onClick={() => {
+                  navigate("BusTracker");
+                }}
+              />
+            }
+          />
         </Routes>
       </div>
       <ul>Bus Tracker</ul>
-      <div></div>
+      <div><Routes>
+          <Route
+            path="BusTracker/busroute"
+            element={
+              <MdFeedback
+                onClick={() => {
+                  navigate("BusTracker/feedback");
+                }}
+              />
+            }
+          /></Routes></div>
     </div>
   );
 };
