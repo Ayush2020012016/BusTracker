@@ -28,60 +28,76 @@ app.listen(PORT, () =>
 app.get("/search", (req, res) => {
   const from = req.query.from;
   const to = req.query.to;
-  if (from == "rit") {
-    console.log(`From  : ${from} Destination : ${to}`);
-    res.set("Access-Control-Allow-Origin", "http://localhost:3000");
-    res.status(200).send({
-      id: "2",
-      name: "St. John",
-      time: "2pm - 7pm",
-      route: "Pampady - Kottayam",
-      routes: [
-        "Pampady",
-        "RIT",
-        "8th Mile",
-        "Manarcad",
-        "Kanjikuzhy",
-        "Kottayam",
-      ],
-    });
-  }
-  if (to == "pampady") {
-    console.log(`From  : ${from} Destination : ${to}`);
-    res.set("Access-Control-Allow-Origin", "http://localhost:3000");
-    res.status(200).send({
-      id: "3",
-      name: "Cee Vee",
-      time: "2pm - 7pm",
-      route: "Pampady - Kottayam",
-      routes: [
-        "Pampady",
-        "RIT",
-        "8th Mile",
-        "Manarcad",
-        "Kanjikuzhy",
-        "Kottayam",
-      ],
-    });
-  }
-  if (to == "kottayam") {
-    console.log(`From  : ${from} Destination : ${to}`);
-    res.set("Access-Control-Allow-Origin", "http://localhost:3000");
-    res.status(200).send({
-      id: "4",
-      name: "St. Mark",
-      time: "2pm - 7pm",
-      route: "Pampady - Kottayam",
-      routes: [
-        "Pampady",
-        "RIT",
-        "8th Mile",
-        "Manarcad",
-        "Kanjikuzhy",
-        "Kottayam",
-      ],
-    });
-  }
+
+  MongoClient.connect(mongourl, function (err, db) {
+    if (err) throw err;
+    console.log("Connected to Database");
+    var dbo = db.db("buses");
+    dbo
+      .collection("routes")
+      .find({})
+      .toArray(function (err, result) {
+        if (err) throw err;
+        console.log(result);
+        db.close();
+      });
+  });
+
+
+  // if (from == "rit") {
+  //   console.log(`From  : ${from} Destination : ${to}`);
+  //   res.set("Access-Control-Allow-Origin", "http://localhost:3000");
+  //   res.status(200).send({
+  //     id: "2",
+  //     name: "St. John",
+  //     time: "2pm - 7pm",
+  //     route: "Pampady - Kottayam",
+  //     routes: [
+  //       "Pampady",
+  //       "RIT",
+  //       "8th Mile",
+  //       "Manarcad",
+  //       "Kanjikuzhy",
+  //       "Kottayam",
+  //     ],
+  //   });
+  // }
+  // if (to == "pampady") {
+  //   console.log(`From  : ${from} Destination : ${to}`);
+  //   res.set("Access-Control-Allow-Origin", "http://localhost:3000");
+  //   res.status(200).send({
+  //     id: "3",
+  //     name: "Cee Vee",
+  //     time: "2pm - 7pm",
+  //     route: "Pampady - Kottayam",
+  //     routes: [
+  //       "Pampady",
+  //       "RIT",
+  //       "8th Mile",
+  //       "Manarcad",
+  //       "Kanjikuzhy",
+  //       "Kottayam",
+  //     ],
+  //   });
+  // }
+  // if (to == "kottayam") {
+  //   console.log(`From  : ${from} Destination : ${to}`);
+  //   res.set("Access-Control-Allow-Origin", "http://localhost:3000");
+  //   res.status(200).send({
+  //     id: "4",
+  //     name: "St. Mark",
+  //     time: "2pm - 7pm",
+  //     route: "Pampady - Kottayam",
+  //     routes: [
+  //       "Pampady",
+  //       "RIT",
+  //       "8th Mile",
+  //       "Manarcad",
+  //       "Kanjikuzhy",
+  //       "Kottayam",
+  //     ],
+  //   });
+  // }
 });
 
 app.get("/busroute", (req, res) => {
