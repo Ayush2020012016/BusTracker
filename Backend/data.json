@@ -1,57 +1,59 @@
 
-{
-    id: "1",
-    name: "St. John",
-    time: "7am - 9am",
-    route: "Pampady - Kottayam",
-    routes: [
+[
+  {
+    "id": "1",
+    "name": "St. John",
+    "time": "7am - 9am",
+    "route": "Pampady - Kottayam",
+    "routes": [
       "Pampady",
       "RIT",
       "8th Mile",
       "Manarcad",
       "Kanjikuzhy",
-      "Kottayam",
+      "Kottayam"
     ],
-    times: ["7am", "7.30am", "7.45am", "8am", "8.20am", "9am"],
+    "times": ["7am", "7.30am", "7.45am", "8am", "8.20am", "9am"]
   },
   {
-    id: "2",
-    name: "Cee Vee",
-    time: "2pm - 4pm",
-    route: "Kottayam - Pampady",
-    routes: [
+    "id": "2",
+    "name": "Cee Vee",
+    "time": "2pm - 4pm",
+    "route": "Kottayam - Pampady",
+    "routes": [
       "Kottayam",
       "Kanjikuzhy",
       "Manarcad",
       "8th Mile",
       "RIT",
-      "Pampady",
+      "Pampady"
     ],
-    times: ["2pm", "2.30pm", "2.45pm", "3pm", "3.20pm", "4pm"],
+    "times": ["2pm", "2.30pm", "2.45pm", "3pm", "3.20pm", "4pm"]
   },
   {
-    id: "3",
-    name: "Orchid",
-    time: "11am - 12pm",
-    route: "Manarcad - Kottayam",
-    routes: [
+    "id": "3",
+    "name": "Orchid",
+    "time": "11am - 12pm",
+    "route": "Manarcad - Kottayam",
+    "routes": [
       "Manarcad",
       "Kanjikuzhy",
-      "Kottayam",
+      "Kottayam"
     ],
-    times: ["11am", "11.20am", "12pm"],
+    "times": ["11am", "11.20am", "12pm"]
   },
   {
-    id: "4",
-    name: "St. Mark",
-    time: "7pm - 7.45pm",
-    route: "Kottayam - Ettumanoor",
-    routes: [,
+    "id": "4",
+    "name": "St. Mark",
+    "time": "7pm - 7.45pm",
+    "route": "Kottayam - Ettumanoor",
+    "routes": [
       "Kottayam",
       "Sankranthi",
       "Caritas Hospital",
       "Matha Hospital",
-      "Ettumanoor",
+      "Ettumanoor"
     ],
-    times: ["7pm", "7.15pm", "7.30pm", "7.35pm", "7.45pm"],
+    "times": ["7pm", "7.15pm", "7.30pm", "7.35pm", "7.45pm"]
   }
+]

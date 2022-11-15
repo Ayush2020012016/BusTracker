@@ -1,25 +1,29 @@
 const app = require("express")();
 const cors = require("cors");
-const MongoClient = require("mongodb").MongoClient;
-const mongourl = "mongodb://localhost:27017/buses";
+const mongoose = require("mongoose");
+const mongourl = process.env.mongourl;
 const PORT = 4000;
+const dotenv = require("dotenv");
 
+dotenv.config();
 app.use(cors());
 app.options("*", cors);
 
-MongoClient.connect(mongourl, function (err, db) {
-  if (err) throw err;
-  console.log("Connected to Database");
-  var dbo = db.db("buses");
-  dbo
-    .collection("routes")
-    .find({})
-    .toArray(function (err, result) {
-      if (err) throw err;
-      console.log(result);
-      db.close();
-    });
-});
+mongoose.connect(process.env.mongourl,console.log("database connected"))
+// MongoClient.connect(mongourl, function (err, db) {
+//   if (err) throw err;
+//   console.log("Connected to Database");
+//   var dbo = db.db("buses");
+//   dbo
+//     .collection("routes")
+//     .find({})
+//     .toArray(function (err, result) {
+//       if (err) throw err;
+//       console.log(result);
+//       db.close();
+//     });
+// });
+
 
 app.listen(PORT, () =>
   console.log(`Server is running on https://localhost:${PORT}`)
